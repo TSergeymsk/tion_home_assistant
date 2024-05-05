@@ -240,8 +240,20 @@ class TionClimate(ClimateEntity):
             else:
                 _LOGGER.info(f"Error setting fan mode to AUTO. Need zone with MagicAir assigned!")
         else:
-            _LOGGER.info(f"Device: {self._breezer.name} Setting fan mode to {fan_mode}")
-            new_speed = int(fan_mode)
+            if int(fan_mode) > 6
+                new_mode = "auto"
+                self._breezer.zone.mode = "auto"
+                self._breezer.zone.target_co2 = 600
+                self._breezer.zone.send()
+
+                self._breezer.speed_min_set = (int(fan_mode) // 10) % 10
+                self._breezer.speed_max_set = int(fan_mode) - 10 * ((int(fan_mode) // 10) % 10)
+                self._breezer.heater_enabled = False
+                _LOGGER.info(f"Device: {self._breezer.name} Setting fan mode to AUTO (1-6 speed)")
+                self._breezer.send()
+            else:
+                _LOGGER.info(f"Device: {self._breezer.name} Setting fan mode to {fan_mode}")
+                new_speed = int(fan_mode)
 
         if new_mode == "manual":
             if new_speed is not None:

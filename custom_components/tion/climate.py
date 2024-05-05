@@ -246,10 +246,10 @@ class TionClimate(ClimateEntity):
                 self._breezer.zone.target_co2 = 600
                 self._breezer.zone.send()
 
-                self._breezer.speed_min_set = 1
+                self._breezer.speed_min_set = 0
                 self._breezer.speed_max_set = int(fan_mode) - 10
                 self._breezer.heater_enabled = False
-                _LOGGER.info(f"Device: {self._breezer.name} Setting fan mode to AUTO (1-6 speed)")
+                _LOGGER.info(f"Device: {self._breezer.name} Setting fan mode to AUTO (0-{int(fan_mode} speed)")
                 self._breezer.send()
             else:
                 _LOGGER.info(f"Device: {self._breezer.name} Setting fan mode to {fan_mode}")

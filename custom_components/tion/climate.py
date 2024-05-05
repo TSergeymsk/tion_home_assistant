@@ -240,7 +240,7 @@ class TionClimate(ClimateEntity):
             else:
                 _LOGGER.info(f"Error setting fan mode to AUTO. Need zone with MagicAir assigned!")
         else:
-            if int(fan_mode) > 6
+            if int(fan_mode) > 6:
                 new_mode = "auto"
                 self._breezer.zone.mode = "auto"
                 self._breezer.zone.target_co2 = 600

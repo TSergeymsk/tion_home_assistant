@@ -7,12 +7,6 @@ from homeassistant.components.climate.const import (
     ClimateEntityFeature,
     FAN_OFF,
     FAN_AUTO,
-    FAN_AUTO1,
-    FAN_AUTO2,
-    FAN_AUTO3,
-    FAN_AUTO4,
-    FAN_AUTO5,
-    FAN_AUTO6,
     ATTR_HVAC_MODE,
     PRESET_AWAY,
     PRESET_COMFORT,
@@ -160,7 +154,7 @@ class TionClimate(ClimateEntity):
     @property
     def fan_modes(self):
         """Return the list of available fan modes."""
-        _fan_modes = [FAN_OFF, FAN_AUTO, FAN_AUTO1, FAN_AUTO2, FAN_AUTO3, FAN_AUTO4, FAN_AUTO5, 1, 2, 3, 4, 5, 6]
+        _fan_modes = [FAN_OFF, FAN_AUTO, 1, 2, 3, 4, 5, 6, 11, 12, 13, 14, 15, 16]
         # try:
         #     _fan_modes.extend(range(0, int(self._breezer.speed_limit) + 1))
         # except Exception as e:
